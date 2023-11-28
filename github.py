@@ -6,6 +6,7 @@ from selenium.webdriver.common.keys import Keys
 @pytest.fixture
 def browser():
     driver = webdriver.Chrome()
+    driver.add_argument("--headless")
     yield driver
     driver.quit()
 
