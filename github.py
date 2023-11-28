@@ -11,7 +11,6 @@ def browser():
     chrome_options.add_argument("--headless")
     driver = webdriver.Chrome(options=chrome_options)
     yield driver
-    driver.quit()
 
 def test_github_login(browser):
     browser.get("https://github.com/login")
