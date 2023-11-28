@@ -8,25 +8,15 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 @pytest.fixture
 def browser():
-    options = Options()
-    options.binary_location = "/home/ubuntu/Downloads/chromedriver.exe"    
-    options.add_argument("--start-maximized") 
-    options.add_argument("--no-sandbox") 
-    options.add_argument("--disable-dev-shm-usage") 
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option('useAutomationExtension', False)
-    driver = webdriver.Chrome(options=options)
-    # driver = webdriver.Chrome(options=options, executable_path="/home/ubuntu/Downloads/chromedriver.exe")
-
     # options = Options()
     # chrome_options = webdriver.ChromeOptions()
     # chrome_options.add_argument("--headless")
     # chrome_options.add_argument('--no-sandbox')
     # chrome_options.add_argument('--disable-dev-shm-usage')
-    # # driver = webdriver.Chrome(options=chrome_options)
-    # driver_path = ChromeDriverManager().install()
     # driver = webdriver.Chrome(options=chrome_options)
-    # # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+    driver_path = ChromeDriverManager().install()
+    driver = webdriver.Chrome()
+    # driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
     yield driver
     driver.quit()
 
