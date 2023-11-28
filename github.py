@@ -2,11 +2,14 @@ import time
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 
 @pytest.fixture
 def browser():
-    driver = webdriver.Chrome()
-    driver.add_argument("--headless")
+    options = Options()
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--headless")
+    driver = webdriver.Chrome(options=chrome_options)
     yield driver
     driver.quit()
 
