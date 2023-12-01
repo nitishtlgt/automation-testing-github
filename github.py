@@ -14,20 +14,19 @@ def browser():
     yield driver
 
 def test_github_login(browser):
-    return browser
-    # browser.get("https://github.com/login")
+    browser.get("https://github.com/login")
 
-    # username_field = browser.find_element("id", "login_field")
-    # password_field = browser.find_element("id", "password")
+    username_field = browser.find_element("id", "login_field")
+    password_field = browser.find_element("id", "password")
 
-    # username_field.send_keys("Vishal-d-2023")
-    # password_field.send_keys("Vishal@1@#")
+    username_field.send_keys("Vishal-d-2023")
+    password_field.send_keys("Vishal@1@#")
 
-    # password_field.send_keys(Keys.RETURN)
+    password_field.send_keys(Keys.RETURN)
 
-    # time.sleep(2)
+    time.sleep(2)
 
-    # assert browser.find_element("class name", "avatar-user")
+    assert browser.find_element("class name", "avatar-user")
 
 if __name__ == "__main__":
     pytest.main([__file__])
