@@ -29,4 +29,4 @@ def test_github_login(browser):
     assert browser.find_element("class name", "avatar-user")
 
 if __name__ == "__main__":
-    pytest.main([__file__])
+    pytest.main([__file__, "--html=report.html"])
